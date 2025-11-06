@@ -5,11 +5,9 @@ class Tarefa {
 
   private static proximoID = 1;
 
-  constructor(nome:string, descricao:string){
+  constructor(nome: string, descricao: string) {
     this.id = Tarefa.proximoID++;
     this.nome = nome;
     this.descricao = descricao;
-
   }
-
 }
