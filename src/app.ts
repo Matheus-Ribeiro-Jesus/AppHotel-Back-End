@@ -1,10 +1,8 @@
 import express from "express";
-import { Request, Response, NextFunction } from "express";
-import router from "./routes/tarefaRoute";
+import rotaTarefa from "./routes/tarefaRoute";
 
 const app = express();
 app.use(express.json());
-app.use("/tarefas", router);
-
+app.use("/tarefas", rotaTarefa);
 
 export default app;

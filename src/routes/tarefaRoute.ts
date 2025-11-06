@@ -1,11 +1,12 @@
 import { Router } from "express";
+import tarefasController from "../controllers/tarefasController";
 
-const router = Router();
+const rotaTarefa = Router();
 
-router.get("/", () => console.log("pegar todas as tarefas"));
-router.get("/:id", () => console.log("pegar uma tarefa"));
-router.post("/", () => console.log("cadastrar uma tarefa"));
-router.put("/:id", () => console.log("atualizar uma tarefa"));
-router.delete("/:id", () => console.log("deletar uma tarefa"));
+rotaTarefa.get("/", tarefasController.pegarTarefas);
+rotaTarefa.get("/:id", tarefasController.pegarTarefa);
+rotaTarefa.post("/", tarefasController.criarTarefa);
+rotaTarefa.put("/:id", tarefasController.atualizarTarefa);
+rotaTarefa.delete("/:id", tarefasController.deletarTarefa);
 
-export default router;
+export default rotaTarefa;
