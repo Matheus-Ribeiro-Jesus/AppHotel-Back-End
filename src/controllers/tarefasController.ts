@@ -26,12 +26,36 @@ async function criarTarefa(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-function atualizarTarefa(req: Request, res: Response, next: NextFunction) {
-  res.send("atualizar uma tarefa");
+async function atualizarTarefa(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  const { id } = req.params;
+  const tarefa = req.body as Tarefa;
+
+  try {
+    const result = await tarefasRepository.atualizarTarefa(
+      parseInt(id),
+      tarefa,
+    );
+    return res.status(201).json(result);
+  } catch (error) {
+    console.log("Erro ao atualizar ", error);
+    return res.status(400).json({ erro: "Erro ao atualizar os dados" });
+  }
 }
 
-function deletarTarefa(req: Request, res: Response, next: NextFunction) {
-  res.send("deletar uma tarefa");
+async function deletarTarefa(req: Request, res: Response, next: NextFunction) {
+  const {id} = req.params
+  try {
+    const result = await tarefasRepository.deletarTarefa(parseInt(id))
+    return res.json(result);
+
+  } catch (error) {
+    console.log("Erro ao deletar ", error);
+    return res.status(400).json({ erro: "Erro ao deletar tarefa" });
+  }
 }
 
 export default {
