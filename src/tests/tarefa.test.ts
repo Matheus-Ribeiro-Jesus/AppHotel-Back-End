@@ -61,7 +61,7 @@ test("POST: /tarefas = 400 (Erro Criar tarefa)", async () => {
   });
   expect(res.status).toBe(400);
   const content = await res.json();
-  expect(content).toHaveProperty("erro", "dados incompletos");
+  expect(content).toHaveProperty("erro", "Dados invalidos");
 });
 
 test("DELETE: /tarefas/:id = 204", async () => {
