@@ -2,7 +2,8 @@ import { Router } from "express";
 import { createJWT } from "../utils/jwt"
 import { middleware } from "./jwtMiddleware";
 import rotaLogin from "./loginRouter";
-import rotaConsultar from "./consultarRoute";
+
+import rotaConsultar from "./quartosRouter";
 
 
 
@@ -10,7 +11,7 @@ const handlerRouter = Router();
 
 handlerRouter.use("/api/login", rotaLogin);
 
-handlerRouter.use("/api/consultar", rotaConsultar);
+handlerRouter.use("/api/quartosDisponiveis", rotaConsultar);
 
 
 handlerRouter.use("/jwt", (req, res) => {
