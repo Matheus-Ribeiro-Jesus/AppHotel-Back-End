@@ -6,7 +6,7 @@ dotenv.config()
 const JWT_SECRET = process.env.JWT_SECRET!;
 const DURATION = 60 * 60 * 24
 
-export function createJWT(data:object){
+export function createJWT(data: object) {
   const payload = {
     ...data,
     iat: Math.floor(Date.now() / 1000)
@@ -17,9 +17,9 @@ export function createJWT(data:object){
   })
 }
 
-export function verifyJWT(token:string){
-  return jwt.verify(token, JWT_SECRET, function(err: any, decoded){
-    if(err){
+export function verifyJWT(token: string) {
+  return jwt.verify(token, JWT_SECRET, function (err: any, decoded) {
+    if (err) {
       return undefined
     }
     return decoded

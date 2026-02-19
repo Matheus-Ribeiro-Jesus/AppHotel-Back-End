@@ -13,20 +13,19 @@ async function login(req: Request, res: Response, next: NextFunction) {
     }
     try {
         const result = await loginRepository.validarLogin(email);
-        if(!result) {throw new Error("Login incorreto");}
+        if (!result) { throw new Error("Login incorreto"); }
 
-        
+
         const resultSenha = await validarSenha(senha, result.senha);
-        if(!resultSenha) {throw new Error("Senha incorreta");}
+        if (!resultSenha) { throw new Error("Senha incorreta"); }
 
         //remover senha do objeto
         const { senha: _, ...usuario } = result;
 
         //criar o token do usuario
-        const token = createJWT({ usuario });
-        
-        return res.status(200).json({ token });
-        
+        const token = createJWT(usuario);
+        return res.status(200).json(token);
+
 
     } catch (error) {
         console.log(error);
