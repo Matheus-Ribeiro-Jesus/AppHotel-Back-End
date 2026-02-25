@@ -12,7 +12,6 @@ test("POST: /api/reserva → 200", async () => {
     });
     expect(res.status).toBe(200);
     const token = await res.json();
-    console.log(token)
 
 
     //realizar reserva
@@ -43,6 +42,4 @@ test("POST: /api/reserva → 200", async () => {
     });
     expect(resp.status).toBe(200);
     const json = await resp.json();
-    console.log(json);
-
 });

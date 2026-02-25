@@ -1,24 +1,26 @@
-import { pool } from "../database/database";
-import { ResultSetHeader, RowDataPacket } from "mysql2";
+import {pool} from "../database/database"
+import {ResultSetHeader, RowDataPacket } from "mysql2";
 
-async function fazerPedido(data:any) {
-    const sql = `INSERT INTO pedidos(cliente_id, pagamento) VALUES(?, ?)`;
-
+async function fazerPedido(data:any){
+    const sql = `INSERT INTO pedidos (cliente_id, pagamento)
+        VALUES (?, ?)`;
+ 
     try {
         const [result] = await pool.query<ResultSetHeader>(sql, [
             data.cliente_id,
             data.pagamento
         ]);
+        // apenas retorna o ID do novo pedido
         return result.insertId;
-    } catch (error) {
-        console.error("Erro ao criar pedido: ", error);
+    } catch (err) {
+        console.error('Erro ao criar pedido:', err);
         return null;
-
     }
 }
 
-async function fazerReserva(idPedido: number, quarto: any) {
-    const sql = `INSERT INTO reservas (pedido_id, quarto_id, inicio, fim) VALUES (?, ?, ?, ?)`;
+async function fazerReserva(idPedido:number, quarto:any) {
+    const sql = `INSERT INTO reservas (pedido_id, quarto_id, inicio, fim) 
+    VALUES (?, ?, ?, ?)`
 
     try {
         const [result] = await pool.query<ResultSetHeader>(sql, [
@@ -27,16 +29,15 @@ async function fazerReserva(idPedido: number, quarto: any) {
             quarto.dataInicio,
             quarto.dataFim,
         ]);
+        // apenas retorna o ID do novo pedido
         return result.insertId;
-    } catch (error) {
-        console.log('Erro ao reservar o quarto', error)
+    } catch (err) {
+        console.error('Erro ao reservar o quarto:', err);
         return null;
-
     }
+    
 }
 
-
-
-export default {
+export default{
     fazerPedido, fazerReserva
 }

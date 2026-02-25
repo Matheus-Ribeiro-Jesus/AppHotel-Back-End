@@ -11,8 +11,5 @@ test("POST: /login = 200", async () => {
   });
 
   const text = await res.text();  
-  console.log("Status:", res.status);
-  console.log("Corpo da resposta:", text);
-
   expect(res.status).toBe(200);
 });
