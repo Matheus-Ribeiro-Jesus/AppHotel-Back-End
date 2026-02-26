@@ -3,9 +3,9 @@ import {Login, dadosLogin} from "../models/loginModel"
 import { QueryResult, ResultSetHeader} from "mysql2"
 
 async function validarLogin(email:string):Promise<Login|null>{
-    const sql = `SELECT clientes.id, clientes.nome, clientes.email, clientes.senha, cargos.nome AS cargo
+    const sql = `SELECT clientes.id, clientes.nome, clientes.email, clientes.senha, roles.nome AS cargos
     FROM clientes 
-    JOIN cargos ON cargos.id = clientes.cargo_id
+    JOIN roles ON roles.id = clientes.cargo_id
     WHERE clientes.email = ? `
     
     const [rows] = await pool.query<Login[]>(sql, [email])
