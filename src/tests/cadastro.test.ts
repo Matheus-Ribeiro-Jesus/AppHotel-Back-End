@@ -1,10 +1,10 @@
 test("POST /cadastro → deve retornar 201 e um token JWT", async () => {
   const payload = {
-    nome: "Matheus R Jesus",
-    cpf: "123456783333901222",
-    email: "matheus33333422@gmail.com",
-    senha: "12345678",
-    telefone: "3333"
+    nome: "Matheus Qs",
+    cpf: "2322'",
+    email: "testes@13teste.com",
+    senha: "232",
+    telefone: "12332"
   };
 
   const res = await fetch("http://localhost:3000/api/login/cadastro", {

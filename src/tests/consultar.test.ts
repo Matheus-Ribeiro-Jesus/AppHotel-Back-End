@@ -3,8 +3,8 @@ test("POST: /api/quartosDisponiveis = 200", async()=>{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            dataInicio:"11/02/2026",
-            dataFim:"12/02/2026",
+            dataInicio:"12/02/2026",
+            dataFim:"13/02/2026",
             quantidade:3
         })
     });

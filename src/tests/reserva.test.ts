@@ -26,15 +26,15 @@ test("POST: /api/reserva → 200", async () => {
             quartos: [
                 {
                     id: 1,
-                    dataInicio: "19/02/2026",
-                    dataFim: "20/02/2026",
+                    dataInicio: "19/03/2026",
+                    dataFim: "20/03/2026",
 
                 },
 
                 {
                     id: 2,
-                    dataInicio: "21/02/2026",
-                    dataFim: "22/02/2026",
+                    dataInicio: "21/04/2026",
+                    dataFim: "22/04/2026",
 
                 }
             ]

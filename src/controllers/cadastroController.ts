@@ -17,6 +17,7 @@ async function cadastro(req: Request, res: Response, next: NextFunction) {
     try {
         // ← Aqui está a correção principal
         const senhaHash = await gerarSenha(senha);
+        console.log("Senha hash gerada:", senhaHash); // Log para verificar a senha hash
 
         const result = await cadastroRepository.cadastrarCliente(
             nome,
