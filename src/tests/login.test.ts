@@ -5,8 +5,8 @@ test("POST: /login = 200", async () => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      email: "teste@13teste.com",
-      senha: "123456"
+      email: "testes@132teste.com",
+      senha: "12345678"
     }),
   });
 
