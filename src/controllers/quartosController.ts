@@ -3,6 +3,7 @@ import quartosRepository from "../repositories/quartosRepository";
 import {corrigirDataHora} from "../utils/datahora";
 
 async function disponiveis(req:Request, res:Response, next:NextFunction) {
+    console.log("TEA");
     let {dataInicio, dataFim, quantidade} = req.body;
 
     if (!dataInicio || !dataFim || !quantidade){
